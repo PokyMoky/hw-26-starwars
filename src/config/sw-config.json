@@ -1,0 +1,40 @@
+{
+  "friends": [
+    {
+      "name": "RD-D2",
+      "img": "src/images/friend1.jpg"
+    },
+    {
+      "name": "C-3PO",
+      "img": "src/images/friend2.jpg"
+    },
+    {
+      "name": "Ewoke",
+      "img": "src/images/friend3.jpg"
+    },
+    {
+      "name": "Chewie",
+      "img": "src/images/friend4.jpg"
+    },
+    {
+      "name": "Han Solo",
+      "img": "src/images/friend5.jpg"
+    },
+    {
+      "name": "Leia Organa",
+      "img": "src/images/friend6.jpg"
+    },
+    {
+      "name": "Millennium Falcon",
+      "img": "src/images/friend7.jpg"
+    },
+    {
+      "name": "Obi-Wan «Ben» Kenobi",
+      "img": "src/images/friend8.jpg"
+    },
+    {
+      "name": "Yoda",
+      "img": "src/images/friend9.jpg"
+    }
+  ]
+}
