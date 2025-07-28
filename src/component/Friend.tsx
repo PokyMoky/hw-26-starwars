@@ -3,13 +3,12 @@ import type {HeroInfo} from "../utils/sw-types";
 
 type Props = {
     friend: HeroInfo;
-    arrIndex: number;
-    onClick: (index: number) => void;
-    isActive: boolean;
+    onClick: () => void;
+    className: string;
 }
 
-const Friend: FC<Props> = ({friend, arrIndex, onClick, isActive}) => {
-    return <img src={friend.img} alt={friend.name} onClick={() => onClick(arrIndex)} className={isActive ? "active" : ''}/>;
+const Friend: FC<Props> = ({friend, ...props}) => {
+    return <img src={friend.img} alt={friend.name} {...props} />;
 };
 
 export default Friend;

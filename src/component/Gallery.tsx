@@ -22,7 +22,7 @@ class Gallery extends Component<Props, State> {
         };
 
         this.allFriendsGallery = this.props.friends.map((friend: HeroInfo, index) =>
-            <Friend key={friend.name} friend={friend} arrIndex={index} onClick={this.handleClick} isActive={false}/>);
+            <Friend key={friend.name} friend={friend} onClick={() => this.handleClick(index)} className=""/>);
     }
 
     handleClick = (index: number) => {
@@ -33,9 +33,8 @@ class Gallery extends Component<Props, State> {
     render() {
         const singlePortrait = <Friend
             friend={this.props.friends[this.state.index]}
-            arrIndex={-1}
-            onClick={this.handleClick}
-            isActive={true}
+            onClick={() => this.handleClick(-1)}
+            className="active"
         />;
         return (
             <section className="right">
