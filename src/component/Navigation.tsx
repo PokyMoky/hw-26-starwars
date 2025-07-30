@@ -1,13 +1,18 @@
 import {navItems} from "../utils/constants.ts";
 import NavItem from "./NavItem.tsx";
+import type {FC} from "react";
 
-const Navigation = () => {
+type Props = {
+    changePage: (page:string) => void;
+}
+
+const Navigation:FC<Props> = ({changePage}) => {
     return (
         <nav>
             <ul>
                 {
                     navItems.map(item =>
-                    <NavItem key={item} text={item} />)
+                    <NavItem key={item} text={item} changePage={changePage} />)
                 }
             </ul>
         </nav>

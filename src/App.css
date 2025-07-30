@@ -1,11 +1,13 @@
-/*#root {*/
-/*  max-width: 1280px;*/
-/*  margin: 0 auto;*/
-/*  padding: 2rem;*/
-/*  text-align: center;*/
-/*}*/
-
 @import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+#root {
+  width: 100vw;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
 *{
   box-sizing: border-box;
   font-family: "Poller One", sans-serif;
@@ -79,6 +81,7 @@ footer{
   background-color: rgba(69, 69, 69, 0.5);
   border-radius: 0 0 25px 25px;
   padding: 0.5rem 0;
+  justify-self: flex-end;
 }
 .btn{
   border: 2px solid black;
@@ -109,3 +112,139 @@ footer{
   color: black;
 }
 
+.personal-data {
+  font-size: 1.25rem;
+  justify-self: flex-start;
+  align-self: flex-start;
+  text-align: left;
+  flex-basis: 100%;
+}
+
+.star-wars-container {
+  height: 70vh;
+  perspective: 600px;
+  position: relative;
+  overflow: hidden;
+  color: #ffe81f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-text {
+  position: absolute;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 3rem;
+  color: #4bd5ee;
+  opacity: 0;
+  animation: introFade 3s ease-out forwards;
+}
+
+@keyframes introFade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.logo {
+  position: absolute;
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  opacity: 0;
+  animation: logoZoom 5s ease-out forwards;
+  animation-delay: 3s;
+}
+
+@keyframes logoZoom {
+  0% {
+    transform: scale(5);
+    opacity: 1;
+  }
+  99% {
+    transform: scale(0.1) translateZ(-2000px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.05) translateZ(-2000px);
+    opacity: 0;
+  }
+}
+
+.crawl {
+    position: absolute;
+    width: 100%;
+    transform-origin: 50% 100%;
+    transform: rotateX(50deg) translateY(100vh) translateZ(0) scale(1.5);
+    opacity: 0;
+    animation: crawlMove 30s linear forwards;
+    animation-delay: 9s;
+}
+
+.crawl-text {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.crawl-text p {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 2rem;
+    text-align: justify;
+    line-height: 1.8;
+    margin: 0;
+    padding: 2rem;
+}
+
+@keyframes crawlMove {
+    0% {
+        transform: rotateX(50deg) translateY(110vh) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotateX(50deg) translateY(-100vh) translateZ(-500px) scale(2.5);
+        opacity: 0;
+    }
+}
+
+input[type=text], select, textarea {
+    background-color: #4c4c4c;
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #951930;
+    color: #e4db61;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+    border-radius: 5px;
+    background-color: rgba(177, 177, 177, 0.18);
+    padding: 20px;
+}
