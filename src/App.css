@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+
+@font-face {
+    font-family: 'Star Jedi';
+    src: url("./assets/Starjedi.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
 #root {
   width: 100vw;
   text-align: center;
@@ -149,6 +157,7 @@ footer{
 
 .logo {
   position: absolute;
+    font-family: "Star Jedi";
   font-size: 4rem;
   font-weight: bold;
   letter-spacing: 2px;
