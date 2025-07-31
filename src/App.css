@@ -8,178 +8,202 @@
 }
 
 #root {
-  width: 100vw;
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  display: flex;
-  flex-direction: column;
+    width: 100vw;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
 }
 
-*{
-  box-sizing: border-box;
-  font-family: "Poller One", sans-serif;
-  color: #e5dc61;
+* {
+    box-sizing: border-box;
+    font-family: "Poller One", sans-serif;
+    color: #e5dc61;
 
 }
-body{
-  background: url("./images/sky.jpg"), black;
+
+body {
+    background: url("./images/sky.jpg"), black;
 }
 
-header{
-  text-align: center;
-  background-color: rgba(69, 69, 69, 0.5);
-  border-radius: 25px 25px 0 0;
-}
-nav ul li{
-  display: inline-block;
-  border: 2px solid black;
-  border-radius: 1rem;
-  padding: 0.3rem;
-  background: rgb(200, 21, 54, 0.7);
-  box-shadow: 0.2rem  0.2rem rgba(100, 100, 100, 0.3);
-}
-nav{
-  position: fixed;
-  margin: 0;
-}
-h1{
-  margin: 0;
-  padding: 1.2rem
-}
-ul{
-  padding: 0;
-  margin: 0;
-}
-.left{
-  float: left;
-  width: 25%;
-  margin: 0 15px 5px 5px;
-}
-.left img{
-  width: 100%;
-  box-shadow:0.5rem  0.5rem rgba(100, 100, 100, 0.3);
+header {
+    text-align: center;
+    background-color: rgba(69, 69, 69, 0.5);
+    border-radius: 25px 25px 0 0;
 }
 
-.gallery{
-  display: flex;
-  flex-wrap: wrap;
-}
-.gallery img{
-  width: calc(100% / 3);
-}
-
-.gallery img.active{
-  width: 100%;
+nav ul li {
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    background: rgb(200, 21, 54, 0.7);
+    box-shadow: 0.2rem 0.2rem rgba(100, 100, 100, 0.3);
 }
 
-.right{
-  float: right;
-  width: 50%;
-  text-align: center;
-  border: 1px solid whitesmoke;
-  border-radius: 0 0 10px 10px;
-  margin: 0 5px 10px 10px;
+nav {
+    position: fixed;
+    margin: 0;
 }
-.right h3{
-  margin: 5px;
+
+h1 {
+    margin: 0;
+    padding: 1.2rem
 }
-footer{
-  clear: both;
-  background-color: rgba(69, 69, 69, 0.5);
-  border-radius: 0 0 25px 25px;
-  padding: 0.5rem 0;
-  justify-self: flex-end;
+
+ul {
+    padding: 0;
+    margin: 0;
 }
-.btn{
-  border: 2px solid black;
-  border-radius: 1rem;
-  padding: 0.3rem;
-  background: rgb(200, 21, 54, 0.7);
-  box-shadow: 0.2rem  0.2rem rgba(100, 100, 100, 0.3);
-  width: max-content;
-  margin-left: 20px;
+
+.left {
+    float: left;
+    width: 25%;
+    margin: 0 15px 5px 5px;
 }
-.farGalaxy{
-  font-size: 1.3rem;
-  line-height: 1.2;
-  letter-spacing: 0.1rem;
-  text-align: justify ;
-  color:rgb(200, 21, 54, 0.7);
+
+.left img {
+    width: 100%;
+    box-shadow: 0.5rem 0.5rem rgba(100, 100, 100, 0.3);
 }
-.farGalaxy span{
-  color: #e5dc61;
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
 }
-.img_left{
-  border-radius: 0 0 0 10px;
+
+.gallery img {
+    width: calc(100% / 3);
 }
-.img_right{
-  border-radius: 0 0 10px 0;
+
+.gallery img.active {
+    width: 100%;
 }
-.btn span{
-  color: black;
+
+.right {
+    float: right;
+    width: 50%;
+    text-align: center;
+    border: 1px solid whitesmoke;
+    border-radius: 0 0 10px 10px;
+    margin: 0 5px 10px 10px;
+}
+
+.right h3 {
+    margin: 5px;
+}
+
+footer {
+    clear: both;
+    background-color: rgba(69, 69, 69, 0.5);
+    border-radius: 0 0 25px 25px;
+    padding: 0.5rem 0;
+    justify-self: flex-end;
+}
+
+.btn {
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    background: rgb(200, 21, 54, 0.7);
+    box-shadow: 0.2rem 0.2rem rgba(100, 100, 100, 0.3);
+    width: max-content;
+    margin-left: 20px;
+}
+
+.farGalaxy {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    letter-spacing: 0.1rem;
+    text-align: justify;
+    color: rgb(200, 21, 54, 0.7);
+}
+
+.farGalaxy span {
+    color: #e5dc61;
+}
+
+.img_left {
+    border-radius: 0 0 0 10px;
+}
+
+.img_right {
+    border-radius: 0 0 10px 0;
+}
+
+.btn span {
+    color: black;
 }
 
 .personal-data {
-  font-size: 1.25rem;
-  justify-self: flex-start;
-  align-self: flex-start;
-  text-align: left;
-  flex-basis: 100%;
+    font-size: 1.25rem;
+    justify-self: flex-start;
+    align-self: flex-start;
+    text-align: left;
+    flex-basis: 100%;
 }
 
 .star-wars-container {
-  height: 70vh;
-  perspective: 600px;
-  position: relative;
-  overflow: hidden;
-  color: #ffe81f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 70vh;
+    perspective: 600px;
+    position: relative;
+    overflow: hidden;
+    color: #ffe81f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .intro-text {
-  position: absolute;
-  font-family: "Helvetica", "Arial", sans-serif;
-  font-size: 3rem;
-  color: #4bd5ee;
-  opacity: 0;
-  animation: introFade 3s ease-out forwards;
+    position: absolute;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 3rem;
+    color: #4bd5ee;
+    opacity: 0;
+    animation: introFade 3s ease-out forwards;
 }
 
 @keyframes introFade {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .logo {
-  position: absolute;
-    font-family: "Star Jedi";
-  font-size: 4rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-align: center;
-  opacity: 0;
-  animation: logoZoom 5s ease-out forwards;
-  animation-delay: 3s;
+    position: absolute;
+    font-family: "Star Jedi", "Helvetica", "Arial", sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    opacity: 0;
+    animation: logoZoom 5s ease-out forwards;
+    animation-delay: 3s;
 }
 
 @keyframes logoZoom {
-  0% {
-    transform: scale(5);
-    opacity: 1;
-  }
-  99% {
-    transform: scale(0.1) translateZ(-2000px);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0.05) translateZ(-2000px);
-    opacity: 0;
-  }
+    0% {
+        transform: scale(5);
+        opacity: 1;
+    }
+    99% {
+        transform: scale(0.1) translateZ(-2000px);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.05) translateZ(-2000px);
+        opacity: 0;
+    }
 }
 
 .crawl {
@@ -256,4 +280,9 @@ input[type=submit]:hover {
     border-radius: 5px;
     background-color: rgba(177, 177, 177, 0.18);
     padding: 20px;
+}
+
+.contact-form {
+    width: 70%;
+    margin: 0 auto;
 }

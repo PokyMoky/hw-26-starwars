@@ -34,7 +34,7 @@ class Contact extends Component<object, State> {
             ))
             content = (
                 <div className="container">
-                    <form>
+                    <form className={"contact-form"}>
                         <label htmlFor="fname">First Name</label>
                         <input type="text" id="fname" name="firstname" placeholder="Your name.."/>
 
