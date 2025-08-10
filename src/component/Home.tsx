@@ -1,7 +1,7 @@
 import info from "../config/sw-config.json";
 import Hero from "./Hero.tsx";
 import Gallery from "./Gallery.tsx";
-import FarGalaxy from "./FarGalaxy.tsx";
+import FarGalaxyFunc from "./FarGalaxyFunc.tsx";
 
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
         <main>
             <Hero />
             <Gallery friends={info.friends} />
-            <FarGalaxy />
+            <FarGalaxyFunc />
         </main>
     );
 };

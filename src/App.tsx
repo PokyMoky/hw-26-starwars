@@ -2,34 +2,19 @@ import './App.css'
 import Header from "./component/Header.tsx";
 import Footer from "./component/Footer.tsx";
 import Main from "./component/Main.tsx";
-import {Component} from "react";
+// import {useState} from "react";
+import {BrowserRouter} from "react-router-dom";
 
-type State = {
-    page: string;
-}
+const App = () => {
+    // const [page, setPage] = useState("Home");
 
-class App extends Component<object, State> {
-    constructor(props: object) {
-        super(props);
-        this.state = {
-            page: "Home"
-        };
-    }
+    return (
+        <BrowserRouter>
+            <Header />
+            <Main />
+            <Footer/>
+        </BrowserRouter>
+    );
+};
 
-    changePage = (page: string) => {
-        this.setState({page});
-    };
-
-    render() {
-
-        return (
-            <>
-                <Header changePage={this.changePage} />
-                <Main page={this.state.page} />
-                <Footer/>
-            </>
-        )
-    }
-}
-
-export default App
+export default App;

@@ -1,50 +1,37 @@
 import type {HeroInfo} from "../utils/sw-types";
-import {Component, type JSX} from "react";
+import {type FC, useState} from "react";
 import Friend from "./Friend.tsx";
 
 type Props = {
     friends: HeroInfo[]
 }
 
-type State = {
-    index: number;
-    gallery: boolean;
-}
+const Gallery:FC<Props> = ({friends}) => {
+    const [picIndex, setPicIndex] = useState(-1);
+    const [isGallery, setIsGallery] = useState(true);
 
-class Gallery extends Component<Props, State> {
-    private readonly allFriendsGallery: JSX.Element[];
-
-    constructor(props: Props) {
-        super(props);
-        this.state = {
-            index: -1,
-            gallery: true
-        };
-
-        this.allFriendsGallery = this.props.friends.map((friend: HeroInfo, index) =>
-            <Friend key={friend.name} friend={friend} onClick={() => this.handleClick(index)} className=""/>);
+    function handleClick(index: number) {
+        setPicIndex(index);
+        setIsGallery(prev => !prev);
     }
 
-    handleClick = (index: number) => {
-        const newGallery = !this.state.gallery;
-        this.setState({index, gallery: newGallery});
-    }
+    const allFriendsGallery = friends.map((friend: HeroInfo, index) =>
+        <Friend key={friend.name} friend={friend} onClick={() => handleClick(index)} className=""/>);
 
-    render() {
-        const singlePortrait = <Friend
-            friend={this.props.friends[this.state.index]}
-            onClick={() => this.handleClick(-1)}
-            className="active"
-        />;
-        return (
-            <section className="right">
-                <h3>Dream Team</h3>
-                <div className="gallery">
-                    {this.state.gallery ? this.allFriendsGallery : singlePortrait};
-                </div>
-            </section>
-        );
-    }
-}
+    const singlePortrait = <Friend
+        friend={friends[picIndex]}
+        onClick={() => handleClick(-1)}
+        className="active"
+    />;
+
+    return (
+        <section className="right">
+            <h3>Dream Team</h3>
+            <div className="gallery">
+                {isGallery ? allFriendsGallery : singlePortrait};
+            </div>
+        </section>
+    );
+};
 
 export default Gallery;

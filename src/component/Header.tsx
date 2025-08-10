@@ -1,14 +1,10 @@
 import Navigation from "./Navigation.tsx";
-import type {FC} from "react";
 
-type Props = {
-    changePage: (page:string) => void;
-}
 
-const Header:FC<Props> = ({changePage}) => {
+const Header = () => {
     return (
         <header>
-            <Navigation changePage={changePage}/>
+            <Navigation />
             <h1>Luke Skywalker</h1>
         </header>
     );
