@@ -1,34 +1,35 @@
 import type {HeroInfo} from "../utils/sw-types";
-import {type FC, useState} from "react";
+import {type FC, useContext} from "react";
 import Friend from "./Friend.tsx";
+import {useNavigate} from "react-router-dom";
+// import friend from "./Friend.tsx";
+import {SWContext} from "../utils/sw-context.ts";
+
 
 type Props = {
     friends: HeroInfo[]
 }
 
-const Gallery:FC<Props> = ({friends}) => {
-    const [picIndex, setPicIndex] = useState(-1);
-    const [isGallery, setIsGallery] = useState(true);
+const Gallery: FC<Props> = ({friends}) => {
+    const navigate = useNavigate();
+    const {mainHero} = useContext(SWContext);
 
-    function handleClick(index: number) {
-        setPicIndex(index);
-        setIsGallery(prev => !prev);
+    const btnClick = (friend: HeroInfo) => {
+        navigate(`/home/${friend.id}`);
     }
 
-    const allFriendsGallery = friends.map((friend: HeroInfo, index) =>
-        <Friend key={friend.name} friend={friend} onClick={() => handleClick(index)} className=""/>);
+    const allFriendsGallery = friends
+        .filter(friend => friend.id !== mainHero)
+        .map((friend: HeroInfo) =>
+            <Friend key={friend.name} friend={friend} onClick={() => btnClick(friend)} className=""/>);
 
-    const singlePortrait = <Friend
-        friend={friends[picIndex]}
-        onClick={() => handleClick(-1)}
-        className="active"
-    />;
+
 
     return (
         <section className="right">
             <h3>Dream Team</h3>
             <div className="gallery">
-                {isGallery ? allFriendsGallery : singlePortrait};
+                {allFriendsGallery};
             </div>
         </section>
     );

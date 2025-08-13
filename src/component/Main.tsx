@@ -11,6 +11,7 @@ const Main = () => {
         <Routes>
             <Route path={'/'} element={<Home />} />
             <Route path={navItems[0].route} element={<Home />} />
+            <Route path={`${navItems[0].route}/:heroId`} element={<Home />} />
             <Route path={navItems[1].route} element={<AboutMe />} />
             <Route path={navItems[2].route} element={<StarWars />} />
             <Route path={navItems[3].route} element={<Contact />} />

@@ -1,6 +1,11 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {SWContext} from "../utils/sw-context.ts";
+import {friends} from "../config/sw-config.json";
 
 const AboutMe = () => {
+    const {mainHero} = useContext(SWContext);
+    const currentHero = friends.find(elem => elem.id === mainHero);
+
     const initialInfo = {
         isLoaded: false,
         name: '',
@@ -12,28 +17,40 @@ const AboutMe = () => {
 
     useEffect(() => {
         (async () => {
-            const id = Math.trunc(Math.random() * 70 + 1);
             try {
-                const firstResponse = await fetch(`https://sw-info-api.herokuapp.com/v1/peoples/${id}`);
+                const firstResponse = await fetch(`https://sw-info-api.herokuapp.com/v1/${currentHero!.path}`);
                 if (!firstResponse.ok) {
                     throw "Bad Request";
                 }
                 const firstResponseData = await firstResponse.json();
-                const homeworldId = firstResponseData.homeworld;
 
-                const secondResponse = await fetch(`https://sw-info-api.herokuapp.com/v1/planets/${homeworldId}`);
-                if (!secondResponse.ok) {
-                    throw "Bad Request";
+                if (mainHero !== "falcon") {
+                    const homeworldId = firstResponseData.homeworld;
+
+                    const secondResponse = await fetch(`https://sw-info-api.herokuapp.com/v1/planets/${homeworldId}`);
+                    if (!secondResponse.ok) {
+                        throw "Bad Request";
+                    }
+                    const secondResponseData = await secondResponse.json();
+
+                    setInfo({
+                        isLoaded: true,
+                        name: firstResponseData.name,
+                        gender: firstResponseData.gender,
+                        birth_year: firstResponseData.birth_year,
+                        homeworld: secondResponseData.name
+                    });
+                } else {
+                    setInfo({
+                        isLoaded: true,
+                        name: firstResponseData.name,
+                        gender: "n/a",
+                        birth_year: firstResponseData.created,
+                        homeworld: "Corellian Engineering Corporation"
+                    })
                 }
-                const secondResponseData = await secondResponse.json();
 
-                setInfo({
-                    isLoaded: true,
-                    name: firstResponseData.name,
-                    gender: firstResponseData.gender,
-                    birth_year: firstResponseData.birth_year,
-                    homeworld: secondResponseData.name
-                });
+
             } catch (e) {
                 console.error(e);
             }
@@ -46,8 +63,8 @@ const AboutMe = () => {
                 <div className={"personal-data"}>
                     <p>Name: {info.name}</p>
                     <p>Gender: {info.gender}</p>
-                    <p>Birth year: {info.birth_year}</p>
-                    <p>Homeworld: {info.homeworld}</p>
+                    <p>{mainHero !== "falcon" ? "Birth year:": "Creation date:" } {info.birth_year}</p>
+                    <p>{mainHero !== "falcon" ? "Homeworld:" : "Manufacturer:" } {info.homeworld}</p>
                 </div>
             )}
         </>
